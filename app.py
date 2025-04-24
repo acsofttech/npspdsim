@@ -70,16 +70,15 @@ state.setdefault("t_start", None)
 OFFSETS = [-3.5,-2.5,-1.5,-0.5,0.5,1.5,2.5,3.5]
 WEIGHTS = [-4,  -3,  -2,  -1,  1,  2,  3,  4]
 
-# ───── Sidebar progress placeholders ─────
-cp_bar  = st.sidebar.progress(0.0)
-cp_text = st.sidebar.empty()
+# ───── Checkpoint progress placeholders ─────
+cp_bar  = st.progress(0.0)
+cp_text = st.empty()
 
 def reset_cp_ui():
     cp_bar.progress(0.0)
     cp_text.write(f"Checkpoint: 0/{CP_TOTAL}")
 
 reset_cp_ui()
-
 # ────────────────── Control buttons ──────────────────
 colA, colB = st.columns(2)
 with colA:
@@ -99,6 +98,9 @@ with colB:
 
 # ───────────────────── Helper functions ─────────────────────
 canvas_spot = st.empty()
+
+
+
 
 def draw_overlay(x: float, y: float, theta: float):
     dx, dy = math.sin(theta), -math.cos(theta)
