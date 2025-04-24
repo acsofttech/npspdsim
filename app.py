@@ -1,6 +1,7 @@
 """
-NPS PD Line-Follower Simulator
-------------------------------
+NPS ROBOTICS PD Line-Follower Simulator
+---------------------------------------
+By. Amnart Plailaharn 
 """
 import asyncio, math, time, base64
 from io import BytesIO
@@ -27,9 +28,9 @@ S_R     = max(2,  int(4 * SCALE))
 spacing_px = st.sidebar.slider("Sensor spacing (px)", 0, 30, 5)
 SPACING    = int(spacing_px * SCALE)
 
-Kd = st.sidebar.slider("Kp", 0.0, 0.2, 0.02, 0.001, '%.3f')
-Kp = st.sidebar.slider("Kd", 0.0, 1.0, 0.325, 0.001, '%.3f')
-base_speed = st.sidebar.number_input("Base speed (px/s)", 20, 255, 100)
+Kd = st.sidebar.slider("Kp", 0.0, 0.2, 0.020, 0.001, '%.3f')
+Kp = st.sidebar.slider("Kd", 0.0, 1.0, 0.000, 0.001, '%.3f')
+base_speed = st.sidebar.number_input("Base speed (px/s)", 20, 255, 100,10)
 
 # ─────────────────────────── Track asset ───────────────────────────
 BASE_DIR = Path(__file__).parent
@@ -41,8 +42,7 @@ if not list(ASSETS.glob("*.png")):
     d.line((50, 300, 750, 300), fill="black", width=20)
     img.save(DEFAULT_TRACK)
 
-track_choice = st.sidebar.selectbox("Track image",
-                                    sorted(p.name for p in ASSETS.glob("*.png")))
+track_choice = st.sidebar.selectbox("Track image",sorted(p.name for p in ASSETS.glob("*.png")))
 TRACK_PATH = ASSETS / track_choice
 
 track_img  = Image.open(TRACK_PATH).resize((TRK_W, TRK_H), Image.NEAREST)
