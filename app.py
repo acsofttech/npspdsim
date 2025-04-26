@@ -11,7 +11,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 import streamlit as st
 # ────────────────────────── Page / Layout ──────────────────────────
-st.set_page_config(page_title="NPSROBOTICS PD Line-Follower", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="NPSROBOTICS PD Line-Follower", page_icon="🤖", layout="centered",menu_items={})
 
 """🤖 NPS ROBOTICS PD Line-Follower Game"""
 # ────────────────────── Sidebar – Display & PD gains ─────────────────────
