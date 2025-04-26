@@ -11,14 +11,14 @@ import numpy as np
 from PIL import Image, ImageDraw
 import streamlit as st
 # ────────────────────────── Page / Layout ──────────────────────────
-st.set_page_config(page_title="PD Line-Follower", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="NPSROBOTICS PD Line-Follower", page_icon="🤖", layout="centered")
 
-"""🤖 NPS PD Line-Follower Simulator"""
+"""🤖 NPS ROBOTICS PD Line-Follower Game"""
 # ────────────────────── Sidebar – Display & PD gains ─────────────────────
 st.sidebar.header("🤖 NPS ROBOTICS – PDSIMBOT")
-scale_pct = st.sidebar.slider("Display scale (%)", 40, 100, 65, 5)
+scale_pct = st.sidebar.slider("Display scale (%)", 40, 200, 100, 5)
 SCALE     = scale_pct / 100
-TRK_W, TRK_H = int(600 * SCALE), int(600 * SCALE)
+TRK_W, TRK_H = int(400 * SCALE), int(400 * SCALE)
 
 # Robot shape & sensors
 ROBOT_W = max(12, int(28 * SCALE))
@@ -28,8 +28,8 @@ S_R     = max(2,  int(4 * SCALE))
 spacing_px = st.sidebar.slider("Sensor spacing (px)", 0, 30, 5)
 SPACING    = int(spacing_px * SCALE)
 
-Kd = st.sidebar.slider("Kp", 0.0, 0.2, 0.020, 0.001, '%.3f')
-Kp = st.sidebar.slider("Kd", 0.0, 1.0, 0.000, 0.001, '%.3f')
+Kp = st.sidebar.slider("Kp - Propertional", 0.0, 1.0, 0.000, 0.001, '%.3f')
+Kd = st.sidebar.slider("Kd - Derivative", 0.0, 0.2, 0.020, 0.001, '%.3f')
 base_speed = st.sidebar.number_input("Base speed (px/s)", 20, 255, 100,10)
 
 # ─────────────────────────── Track asset ───────────────────────────
@@ -37,7 +37,7 @@ BASE_DIR = Path(__file__).parent
 ASSETS   = BASE_DIR / "assets"; ASSETS.mkdir(exist_ok=True, parents=True)
 DEFAULT_TRACK = ASSETS / "track_default.png"
 if not list(ASSETS.glob("*.png")):
-    img = Image.new("RGB", (600, 600), "white")
+    img = Image.new("RGB", (800,800), "white")
     d   = ImageDraw.Draw(img)
     d.line((50, 300, 750, 300), fill="black", width=20)
     img.save(DEFAULT_TRACK)
@@ -59,7 +59,7 @@ CP_MASKS = [CP1_MASK, CP2_MASK]
 CP_TOTAL = len(CP_MASKS)
 
 # ───────────────────────── Session-state ─────────────────────────
-START_POS = {"x": 30*SCALE, "y": 305*SCALE, "theta": 0.0}
+START_POS = {"x": 20*SCALE, "y": 200*SCALE, "theta": 0.0}
 state = st.session_state
 state.setdefault("running", False)
 state.setdefault("robot",   START_POS.copy())
@@ -69,7 +69,6 @@ state.setdefault("t_start", None)
 
 OFFSETS = [-3.5,-2.5,-1.5,-0.5,0.5,1.5,2.5,3.5]
 WEIGHTS = [-4,  -3,  -2,  -1,  1,  2,  3,  4]
-
 # ───── Checkpoint progress placeholders ─────
 cp_bar  = st.progress(0.0)
 cp_text = st.empty()
