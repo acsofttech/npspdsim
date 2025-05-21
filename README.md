@@ -56,7 +56,14 @@ streamlit run app.py
 ```
 
 🧪 Technologies Used
-Python 3.x
-Streamlit
-NumPy
-Pillow (PIL)
+- Python 3.x
+- Streamlit
+- NumPy
+- Pillow (PIL)
+
+🧠 About
+NPS PD Line-Follower Simulator
+ออกแบบเพื่อส่งเสริมการเรียนรู้ระบบควบคุมหุ่นยนต์โดยใช้ PD Algorithm และสร้างความเข้าใจการทำงานของเซ็นเซอร์ในสถานการณ์จำลองเสมือนจริง
+
+📄 License
+This project is licensed under the MIT License.
