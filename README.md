@@ -35,15 +35,7 @@
 git clone https://github.com/acsofttech/npspdsim.git
 cd npspdsim
 
-
-## 🚀 วิธีติดตั้งและใช้งาน
-
-### 1. Clone โครงการ
-```bash
-git clone https://github.com/acsofttech/npspdsim.git
-cd npspdsim
-
-2.สร้าง Virtual Environment
+### 2.สร้าง Virtual Environment
 python -m venv venv
 # สำหรับ macOS/Linux:
 source venv/bin/activate
