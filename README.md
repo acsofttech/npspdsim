@@ -45,25 +45,25 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-3. ติดตั้ง Dependencies
+### 3. ติดตั้ง Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-4. รันแอปพลิเคชัน
+### 4. รันแอปพลิเคชัน
 ```bash
 streamlit run app.py
 ```
 
-🧪 Technologies Used
+### 🧪 Technologies Used
 - Python 3.x
 - Streamlit
 - NumPy
 - Pillow (PIL)
 
-🧠 About
+### 🧠 About
 NPS PD Line-Follower Simulator
 ออกแบบเพื่อส่งเสริมการเรียนรู้ระบบควบคุมหุ่นยนต์โดยใช้ PD Algorithm และสร้างความเข้าใจการทำงานของเซ็นเซอร์ในสถานการณ์จำลองเสมือนจริง
 
-📄 License
+### 📄 License
 This project is licensed under the MIT License.
