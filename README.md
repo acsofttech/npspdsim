@@ -44,11 +44,16 @@ source venv/bin/activate
 # สำหรับ Windows:
 venv\Scripts\activate
 ```
+
 3. ติดตั้ง Dependencies
+```bash
 pip install -r requirements.txt
+```
 
 4. รันแอปพลิเคชัน
+```bash
 streamlit run app.py
+```
 
 🧪 Technologies Used
 Python 3.x
