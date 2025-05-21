@@ -34,14 +34,16 @@
 ```bash
 git clone https://github.com/acsofttech/npspdsim.git
 cd npspdsim
+```
 
 ### 2.สร้าง Virtual Environment
+```bash
 python -m venv venv
 # สำหรับ macOS/Linux:
 source venv/bin/activate
 # สำหรับ Windows:
 venv\Scripts\activate
-
+```
 3. ติดตั้ง Dependencies
 pip install -r requirements.txt
 
